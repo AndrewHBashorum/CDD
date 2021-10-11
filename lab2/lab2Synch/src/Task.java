@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  *
- * @author joe
- */
-public class Task implements Runnable {
+ * @author Andrew Bashorm
+ *
+ * */
+class Task implements Runnable {
 private String name;
     private IntegerObj total;
     public Task(String task_1, IntegerObj total) {
@@ -23,7 +21,7 @@ private String name;
     {
         try
         {
-            for (int i = 0; i<=500; i++)
+            for (int i = 0; i<500; i++)
             {
                 total.inc();
                 if (i%100==0){

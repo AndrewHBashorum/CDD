@@ -8,7 +8,8 @@
  *
  * @author joe
  */
-class IntegerObj {
+class IntegerObj extends Thread {
+
     int value;
     IntegerObj(int val) {
         this.value = val;

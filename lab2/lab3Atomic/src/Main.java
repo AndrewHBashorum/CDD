@@ -4,35 +4,36 @@
  * and open the template in the editor.
  */
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author joe
+ * Andrew Bashorum
+ * C00238900
  */
 public class Main {
     
       // Maximum number of threads in thread pool
-    static final int MAX_T = 4;             
-  
+    static final int MAX_T = 4;
+    AtomicInteger at = new AtomicInteger();
     public static void main(String[] args)
     {
-        IntegerObj total= new IntegerObj(0);
+        long startTime = System.nanoTime();
+        AtomicInteger atomicResult = new AtomicInteger();
+        //IntegerObj total= new IntegerObj(0);
         // creates five tasks
-        Runnable r1 = new Task("task 1",total);
-        Runnable r2 = new Task("task 2",total);
-        Runnable r3 = new Task("task 3",total);
-        Runnable r4 = new Task("task 4",total);    
+        Runnable r1 = new Task("task 1",atomicResult);
+        Runnable r2 = new Task("task 2",atomicResult);
+        Runnable r3 = new Task("task 3",atomicResult);
+        Runnable r4 = new Task("task 4",atomicResult);
           
         // creates a thread pool with MAX_T no. of 
         // threads as the fixed pool size(Step 2)
-        ExecutorService pool = Executors.newFixedThreadPool(MAX_T);  
-         
+        ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
+
         // passes the Task objects to the pool to execute (Step 3)
         pool.execute(r1);
         pool.execute(r2);
@@ -46,6 +47,9 @@ public class Main {
         } catch (InterruptedException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("total is: "+total.value);
+        System.out.println("total is: "+atomicResult);
+        long estimatedTime = System.nanoTime() - startTime;
+        double seconds = (double)estimatedTime/1000000000;
+        System.out.println(seconds);
     }
 }
