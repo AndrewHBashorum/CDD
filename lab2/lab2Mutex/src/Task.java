@@ -8,7 +8,9 @@ import java.util.concurrent.Semaphore;
 
 /**
  *
- * @author joe
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 class Task implements Runnable {
     private String name;
@@ -19,11 +21,12 @@ class Task implements Runnable {
         this.total = total;
     }
     static Semaphore semaphore = new Semaphore(1);
-
+    /**
+     * Changed run methods to use a semaphore lock like a mutex lock
+     */
     public void run() {
 
         try {
-
 
             System.out.println(name + " : acquiring lock...");
             System.out.println(name + " : available Semaphore permits now: "

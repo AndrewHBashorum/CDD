@@ -6,7 +6,9 @@
 
 /**
  *
- * @author joe
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 class IntegerObj extends Thread {
 

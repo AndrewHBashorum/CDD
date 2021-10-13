@@ -9,6 +9,8 @@ import java.util.concurrent.Semaphore;
 /**
  *
  * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 class IntegerObj {
     //Semaphore sem = new Semaphore(1);

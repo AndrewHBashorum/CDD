@@ -6,7 +6,12 @@
 
 /**
  *
- * @author joe
+ * @author Andrew Bashorum
+ * @date 13/10/21
+ */
+
+/**
+ * Uising synchronized java keyword
  */
 class IntegerObj {
     int value;

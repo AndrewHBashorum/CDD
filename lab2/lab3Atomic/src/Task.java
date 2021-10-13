@@ -8,9 +8,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
- * @author Andrew Bashorm
- *
- * */
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
+ */
 class Task implements Runnable {
 private String name;
     public static volatile AtomicInteger atomicResult;

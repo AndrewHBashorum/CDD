@@ -6,7 +6,9 @@
 
 /**
  *
- * @author joe
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 public class Task implements Runnable {
 private String name;

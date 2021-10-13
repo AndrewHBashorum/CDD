@@ -11,13 +11,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Andrew Bashorum
- * C00238900
+ *
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 public class Main {
     
       // Maximum number of threads in thread pool
     static final int MAX_T = 4;
+    /**
+     * Using atomic int instead of integer object. Replaces int in every instance
+     */
     AtomicInteger at = new AtomicInteger();
     public static void main(String[] args)
     {

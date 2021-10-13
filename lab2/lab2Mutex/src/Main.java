@@ -11,8 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Andrew Bashorum
- * C00238900
+ *
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 13/10/2021
  */
 public class Main {
     
