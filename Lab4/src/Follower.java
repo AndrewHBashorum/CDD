@@ -1,12 +1,24 @@
+
+/**
+ * Not functional
+ * @author Andrew Bashorum
+ * @license
+ * @date 14/1/2021
+ * Assisted by Allen B. Downey, The Little Book of Semaphores
+ */
 public class Follower {
 
-    Follower() {
 
+
+    public void enter() {
+        System.out.println("Customer: Enters the shop --- " + Thread.currentThread().getName());
     }
 
-    public void run()
-    {
-        return;
+    public void getHairCut() {
+        System.out.println("Customer: Getting Haircut --- " + Thread.currentThread().getName());
     }
 
+    public void leave() {
+        System.out.println("Customer: Leaves the shop --- " + Thread.currentThread().getName());
+    }
 }

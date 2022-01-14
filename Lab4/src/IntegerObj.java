@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 
-/**
- *
- * @author Andrew Bashorum
- * @license GPL
- * @Date 13/10/2021
- */
 class IntegerObj {
     int value;
     IntegerObj(int val) {

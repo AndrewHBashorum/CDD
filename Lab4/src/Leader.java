@@ -1,16 +1,16 @@
 /**
- *
+ * Not functional
  * @author Andrew Bashorum
- * @license GPL
- * @Date 13/10/2021
+ * @license
+ * @date 14/1/2021
+ * Assisted by Allen B. Downey, The Little Book of Semaphores
  */
 
 public class Leader
 {
-    Leader() {
-
+    public static void dance() {
+        System.out.println("Leader: Dances with follower--- " + Thread.currentThread().getName());
     }
-
     public void run()
     {
         return;

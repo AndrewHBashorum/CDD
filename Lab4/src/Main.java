@@ -4,52 +4,58 @@
  * and open the template in the editor.
  */
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 
 /**
- *
+ * Not functional
  * @author Andrew Bashorum
  * @license
- * @date 13/10/2021
+ * @date 14/1/2021
+ * Assisted by Allen B. Downey, The Little Book of Semaphores
  */
 public class Main {
     
-      // Maximum number of threads in thread pool
-    static final int MAX_T = 4;             
-  
-    public static void main(String[] args)
-    {
-        long startTime = System.nanoTime();
-        IntegerObj total= new IntegerObj(0);
-        // creates five tasks
-        Runnable r1 = new Task("task 1",total);
-        Runnable r2 = new Task("task 2",total);
-        Runnable r3 = new Task("task 3",total);
-        Runnable r4 = new Task("task 4",total);    
-          
-        // creates a thread pool with MAX_T no. of 
-        // threads as the fixed pool size(Step 2)
-        ExecutorService pool = Executors.newFixedThreadPool(MAX_T);  
-         
-        // passes the Task objects to the pool to execute (Step 3)
-        pool.execute(r1);
-        pool.execute(r2);
-        pool.execute(r3);
-        pool.execute(r4);
-          
-        // pool shutdown ( Step 4)
-        pool.shutdown();    
-        try {
-            Thread.sleep(2500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+
+      private static final int NUM_ITERATION = 4;
+
+    public static void main(String[] args) {
+
+        ExecutorService executor = Executors.newWorkStealingPool();
+        Task danceFloor = new Task(4);
+
+
+        Callable<Void> danceFloorTask = danceFloor::startDance;
+        Callable<Void> newDanceTask = danceFloor::newDancePartner;
+
+        List<Future<Void>> leaderFutures = new ArrayList();
+        List<Future<Void>> followersFutures = new ArrayList();
+
+
+        for (int i=0; i<NUM_ITERATION; i++) {
+            Future<Void> barberFuture = executor.submit(danceFloorTask);
+            leaderFutures.add(barberFuture);
+
+            Future <Void> customerFuture = executor.submit(newDanceTask);
+            followersFutures.add(customerFuture);
         }
-        System.out.println("total is: "+total.value);
-        long estimatedTime = System.nanoTime() - startTime;
-        double seconds = (double)estimatedTime/1000000000;
-        System.out.println(seconds);
+
+        leaderFutures.forEach(future -> {
+            try {
+                future.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
+
+        followersFutures.forEach(future -> {
+            try {
+                future.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }
