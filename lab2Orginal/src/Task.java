@@ -8,16 +8,23 @@
  *
  * @author Andrew Bashorum
  * @license GPL
- * @Date 13/10/2021
+ * @Date 20/10/2021
  */
 public class Task implements Runnable {
 private String name;
     private IntegerObj total;
+    /**
+     The constucter of the task class
+     @param takes a string for a name and an integer object
+     @return Nothing
+     */
     public Task(String task_1, IntegerObj total) {
         name=task_1;
         this.total = total;
     }
-    
+    /**
+     Function to do a simple task
+     */
     public void run()
     {
         try

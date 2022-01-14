@@ -1,4 +1,9 @@
-
+/**
+ *
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 26/10/2021
+ */
 public class Main
 {
     public static void main(String args[])

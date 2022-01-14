@@ -10,19 +10,28 @@ import java.util.concurrent.Semaphore;
  *
  * @author Andrew Bashorum
  * @license GPL
- * @Date 13/10/2021
+ * @Date 20/10/2021
  */
 class Task implements Runnable {
     private String name;
     private IntegerObj total;
 
+    /**
+     Constructor sets a string an integer object value
+     @param
+     @return
+     @throws
+     */
     public Task(String task_1, IntegerObj total) {
         name = task_1;
         this.total = total;
     }
     static Semaphore semaphore = new Semaphore(1);
     /**
-     * Changed run methods to use a semaphore lock like a mutex lock
+     Changed run methods to use a semaphore lock like a mutex lock
+     @param
+     @return
+     @throws
      */
     public void run() {
 

@@ -1,3 +1,9 @@
+/**
+ *
+ * @author Andrew Bashorum
+ * @license GPL
+ * @Date 26/10/2021
+ */
 import java.util.concurrent.Semaphore;
 public class Q {
     int item;
@@ -9,6 +15,7 @@ public class Q {
     static Semaphore semProd = new Semaphore(1);
 
     // to get an item from buffer
+
     void get()
     {
         try {

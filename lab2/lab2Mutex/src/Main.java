@@ -14,11 +14,11 @@ import java.util.logging.Logger;
  *
  * @author Andrew Bashorum
  * @license GPL
- * @Date 13/10/2021
+ * @Date 20/10/2021
  */
 public class Main {
     
-      // Maximum number of threads in thread pool
+    // Maximum number of threads in thread pool
     static final int MAX_T = 4;
     //Semaphore semaphore = new Semaphore(4);
     public static void main(String[] args)

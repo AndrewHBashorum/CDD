@@ -3,7 +3,7 @@
  *
  * @author Andrew Bashorum
  * @license GPL
- * @Date 13/10/2021
+ * @Date 26/10/2021
  */
 public class Consumer implements Runnable {
 
@@ -13,7 +13,9 @@ public class Consumer implements Runnable {
         this.q = q;
         new Thread(this, "Consumer").start();
     }
-
+    /**
+     Run loops 5 times getting consumer to get items
+     */
     public void run()
     {
         for (int i = 0; i < 5; i++)

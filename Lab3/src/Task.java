@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  *
  * @author Andrew Bashorum
@@ -20,13 +23,19 @@ private String name;
 
 
     }
-    
+    /**
+     * Run implements a barrier
+     @param
+     @return
+     @throws
+     */
     public void run()
     {
+        final int MAX_T = 4;
         barrier bar = new barrier();
         try
         {
-
+            ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
             total.inc();
             pool.shutdown();
             try

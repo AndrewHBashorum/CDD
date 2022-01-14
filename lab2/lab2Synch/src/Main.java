@@ -18,8 +18,13 @@ import java.util.logging.Logger;
 public class Main {
     
       // Maximum number of threads in thread pool
-    static final int MAX_T = 4;             
-  
+    static final int MAX_T = 4;
+    /**
+     Runs four tasks in synch
+     @param
+     @return
+     @throws
+     */
     public static void main(String[] args)
     {
         long startTime = System.nanoTime();

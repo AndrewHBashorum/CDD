@@ -13,13 +13,18 @@ import java.util.logging.Logger;
  *
  * @author Andrew Bashorum
  * @license
- * @date 13/10/2021
+ * @date 20/10/2021
  */
 public class Main {
     
       // Maximum number of threads in thread pool
-    static final int MAX_T = 4;             
-  
+    static final int MAX_T = 4;
+    /**
+     Creates four tasks
+     @param
+     @return
+     @throws
+     */
     public static void main(String[] args)
     {
         long startTime = System.nanoTime();

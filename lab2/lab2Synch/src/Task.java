@@ -12,11 +12,23 @@
 class Task implements Runnable {
 private String name;
     private IntegerObj total;
+
+    /**
+     Constructor which sets a tasks name and inter object value
+     @param
+     @return
+     @throws
+     */
     public Task(String task_1, IntegerObj total) {
         name=task_1;
         this.total = total;
     }
-    
+    /**
+     Run just loops 500 times sleeping every 100 loops
+     @param
+     @return
+     @throws
+     */
     public void run()
     {
         try
