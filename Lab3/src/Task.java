@@ -4,66 +4,37 @@
  * and open the template in the editor.
  */
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 /**
  *
  * @author Andrew Bashorum
  * @license GPL
- * @Date 13/10/2021
+ * @Date 19/1/2021
+ * Assisted by https://stackoverflow.com/questions/44060558/simple-barrier-synchronisation-in-java
  */
+class Task extends Thread {
+    private Barrier b;
+    private long waitPeriod;
 
-public class Task implements Runnable {
-private String name;
-    private IntegerObj total;
-    public Task(String task_1, IntegerObj total) {
-        name=task_1;
-        this.total = total;
-
+    public Task(long wait, Barrier b) {
+        this.b = b;
+        this.waitPeriod = wait;
+        System.out.println("Thread \n" +
+                "instantiated " + this.getName());
 
     }
-    /**
-     * Run implements a barrier
-     @param
-     @return
-     @throws
-     */
-    public void run()
-    {
-        final int MAX_T = 4;
-        barrier bar = new barrier();
-        try
-        {
-            ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
-            total.inc();
-            pool.shutdown();
-            try
-            {
-                mutex.acquire();
-                count++;
-                System.out.println("Being run by " + Thread.currentThread().getName());
-                for (int i = 0; i < 5; i++)
-                {
 
-                    System.out.println("Running Thread  " + Thread.currentThread().getName());
-                    Thread.sleep(2000);
-                }
-                mutex.release();
-            }
-            catch(InterruptedException e)
-            {
-                e.printStackTrace();
-            }
+    public void waitNowTask() throws InterruptedException {
+        b.waitNow();
+    }
 
-
-
-
-
-            System.out.println(name+" complete");
-        }
-        catch(InterruptedException e)
-        {
+    @Override
+    public void run() {
+        try {
+            System.out.println("Thread a sleeping " + this.getName());
+            sleep(waitPeriod);
+            System.out.println("Thread a waking " + this.getName());
+            waitNowTask();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

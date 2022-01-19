@@ -10,6 +10,7 @@
  * @license GPL
  * @Date 20/10/2021
  */
+
 public class Task implements Runnable {
 private String name;
     private IntegerObj total;
@@ -33,9 +34,9 @@ private String name;
             {
                 total.inc();
                 if (i%100==0){
-                   Thread.sleep(100); 
+                   Thread.sleep(100);
                 }
-                
+
             }
             System.out.println(name+" complete");
         }
